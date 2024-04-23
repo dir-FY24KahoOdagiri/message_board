@@ -12,12 +12,20 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
+//...（中略）...
+
 @NamedQueries({
-    @NamedQuery(
-        name = "getAllMessages",
-        query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
-    )
+ @NamedQuery(
+         name = "getAllMessages",
+         query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
+         ),
+ @NamedQuery(
+         name = "getMessagesCount",
+         query = "SELECT COUNT(m) FROM Message AS m"
+         )
 })
+
+//...（中略）...
 
 @Table(name = "messages")
 public class Message {
