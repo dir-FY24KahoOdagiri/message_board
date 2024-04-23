@@ -42,7 +42,14 @@ public class UpdateServlet extends HttpServlet {
             // データベースを更新
             em.getTransaction().begin();
             em.getTransaction().commit();
+            // ...（中略）...
+
+           
+            request.getSession().setAttribute("flush", "更新が完了しました。");       // ここを追記
             em.close();
+
+            // ...（中略）...
+
 
             // セッションスコープ上の不要になったデータを削除
             request.getSession().removeAttribute("message_id");

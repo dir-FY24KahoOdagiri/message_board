@@ -42,8 +42,14 @@ public class CreateServlet extends HttpServlet {
 
             em.persist(m);
             em.getTransaction().commit();
+            // ...（中略）...
+
+            // データベースに保存
+    
+            request.getSession().setAttribute("flush", "登録が完了しました。");       // ここを追記
             em.close();
 
+            // ...（中略）...
             response.sendRedirect(request.getContextPath() + "/index");
         }
     }
